@@ -1,1 +1,62 @@
-hel yeeeee
+import logging
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, CallbackContext
+import time
+import threading
+
+# Включаем логирование
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+logger = logging.getLogger(name)
+
+# Словарь для хранения напоминаний
+reminders = {}
+
+def start(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text('Привет! Я бот для напоминаний. Используй /remind <время> <сообщение> для установки напоминания.')
+
+def remind(update: Update, context: CallbackContext) -> None:
+    try:
+        time_str = context.args[0]  # Время в формате "10s", "1m", "1h"
+        message = ' '.join(context.args[1:])  # Сообщение
+        seconds = convert_time_to_seconds(time_str)
+
+        if seconds is not None:
+            chat_id = update.message.chat_id
+            reminders[chat_id] = message
+            threading.Timer(seconds, send_reminder, args=(chat_id, message)).start()
+            update.message.reply_text(f'Напоминание установлено на {time_str}.')
+        else:
+            update.message.reply_text('Неверный формат времени. Используйте "10s", "1m", "1h".')
+    except (IndexError, ValueError):
+        update.message.reply_text('Используйте: /remind <время> <сообщение>')
+
+def convert_time_to_seconds(time_str: str) -> int:
+    if time_str.endswith('s'):
+        return int(time_str[:-1])
+    elif time_str.endswith('m'):
+        return int(time_str[:-1]) * 60
+    elif time_str.endswith('h'):
+        return int(time_str[:-1]) * 3600
+    return None
+
+def send_reminder(chat_id: int, message: str) -> None:
+    updater.bot.send_message(chat_id=chat_id, text=f'Напоминание: {message}')
+    del reminders[chat_id]  # Удаляем напоминание после отправки
+
+def main() -> None:
+    # Вставьте свой токен
+    updater = Updater("YOUR_TOKEN_HERE")
+
+    # Получаем диспетчер для регистрации обработчиков
+    dispatcher = updater.dispatcher
+
+    # Регистрация обработчиков команд
+    dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(CommandHandler("remind", remind))
+
+    # Запуск бота
+    updater.start_polling()
+    updater.idle()
+
+if name == 'main':
+    main()
