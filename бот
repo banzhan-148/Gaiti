@@ -28,8 +28,9 @@ def callback_inline(call):
         btn3 = types.InlineKeyboardButton('Toyota Altezza', callback_data='Altezza')
         btn4 = types.InlineKeyboardButton('Toyota MarK II', callback_data='Mark_II')
         btn5 = types.InlineKeyboardButton('BMW E36', callback_data='BMW_E36')
-        btn6 = types.InlineKeyboardButton('Назад', callback_data='back')
-        markup1.add(btn3, btn4, btn5, btn6)
+        btn6 = types.InlineKeyboardButton('Silvia 15', callback_data='S15')
+        btn7 = types.InlineKeyboardButton('Назад', callback_data='back')
+        markup1.add(btn3, btn4, btn5, btn6, btn7)
         bot.send_message(call.message.chat.id, 'Выберите машину:', reply_markup=markup1)
 
     elif call.data == 'back':
@@ -45,8 +46,9 @@ def callback_inline(call):
         btn4 = types.InlineKeyboardButton('Toyota Altezza', callback_data='Altezza')
         btn5 = types.InlineKeyboardButton('Toyota MarK II', callback_data='Mark_II')
         btn6 = types.InlineKeyboardButton('BMW E36', callback_data='BMW_E36')
-        btn7 = types.InlineKeyboardButton('Назад', callback_data='back')
-        markup1.add(btn4, btn5, btn6, btn7)
+        btn7 = types.InlineKeyboardButton('Silvia 15', callback_data='S15')
+        btn8 = types.InlineKeyboardButton('Назад', callback_data='back')
+        markup1.add(btn4, btn5, btn6, btn7, btn8)
         bot.send_message(call.message.chat.id, 'Выберите машину:', reply_markup=markup1)
 
     elif call.data == 'Altezza':
@@ -79,50 +81,71 @@ def callback_inline(call):
         bot.send_media_group(call.message.chat.id, media)
         bot.send_message(call.message.chat.id, 'винил для BMW E36', reply_markup=markup4)
 
-    elif call.data == 'nastroyki':
+    elif call.data == 'S15':
         markup5 = types.InlineKeyboardMarkup()
+        btn10 = types.InlineKeyboardButton('Назад', callback_data='back_car')
+        media = [telebot.types.InputMediaPhoto(media=open('s151.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('s152.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('s153.jpg', 'rb'))]
+        markup5.add(btn10)
+        bot.send_media_group(call.message.chat.id, media)
+        bot.send_message(call.message.chat.id, 'винил для Silvia 15', reply_markup=markup5)
+
+    elif call.data == 'nastroyki':
+        markup6 = types.InlineKeyboardMarkup()
         btn10 = types.InlineKeyboardButton('Toyota Altezza', callback_data='Altezza_nastroyki')
         btn11 = types.InlineKeyboardButton('Toyota MarK II', callback_data='Mark_II_nastroyki')
         btn12 = types.InlineKeyboardButton('BMW E36', callback_data='BMW_E36_nastroyki')
-        btn13 = types.InlineKeyboardButton('Назад', callback_data='back')
-        markup5.add(btn10,btn11, btn12, btn13)
-        bot.send_message(call.message.chat.id, 'Выберите машину для настроек:', reply_markup=markup5)
+        btn13 = types.InlineKeyboardButton('Silvia 15', callback_data='S15_nastroyki')
+        btn14 = types.InlineKeyboardButton('Назад', callback_data='back')
+        markup6.add(btn10,btn11, btn12, btn13, btn14)
+        bot.send_message(call.message.chat.id, 'Выберите машину для настроек:', reply_markup=markup6)
 
     elif call.data == 'Altezza_nastroyki':
-        markup6 = types.InlineKeyboardMarkup()
+        markup7 = types.InlineKeyboardMarkup()
         btn14 = types.InlineKeyboardButton('Назад', callback_data='back_nastroyki')
         media = [telebot.types.InputMediaPhoto(media=open('nastroyki1.jpg', 'rb')),
         telebot.types.InputMediaPhoto(media=open('nastroyki2.jpg', 'rb'))]
-        markup6.add(btn14)
+        markup7.add(btn14)
         bot.send_media_group(call.message.chat.id, media)
-        bot.send_message(call.message.chat.id, 'настройки для машин', reply_markup=markup6)
+        bot.send_message(call.message.chat.id, 'настройки для машин', reply_markup=markup7)
 
     elif call.data == 'back_nastroyki':
         markup5 = types.InlineKeyboardMarkup()
         btn11 = types.InlineKeyboardButton('Toyota Altezza', callback_data='Altezza_nastroyki')
         btn12 = types.InlineKeyboardButton('Toyota MarK II', callback_data='Mark_II_nastroyki')
         btn13 = types.InlineKeyboardButton('BMW E36', callback_data='BMW_E36_nastroyki')
-        btn14 = types.InlineKeyboardButton('Назад', callback_data='back')
-        markup5.add(btn11,btn12, btn13, btn14)
+        btn14 = types.InlineKeyboardButton('Silvia 15', callback_data='S15_nastroyki')
+        btn15 = types.InlineKeyboardButton('Назад', callback_data='back')
+        markup5.add(btn11,btn12, btn13, btn14, btn15)
         bot.send_message(call.message.chat.id, 'Выберите машину для настроек:', reply_markup=markup5)
     
     elif call.data == 'Mark_II_nastroyki':
-        markup7 = types.InlineKeyboardMarkup()
+        markup8 = types.InlineKeyboardMarkup()
         btn15 = types.InlineKeyboardButton('Назад', callback_data='back_nastroyki')
         media = [telebot.types.InputMediaPhoto(media=open('nastroyki3.jpg', 'rb')),
         telebot.types.InputMediaPhoto(media=open('nastroyki4.jpg', 'rb'))]
-        markup7.add(btn15)
+        markup8.add(btn15)
         bot.send_media_group(call.message.chat.id, media)
-        bot.send_message(call.message.chat.id, 'настройки для машин', reply_markup=markup7)
+        bot.send_message(call.message.chat.id, 'настройки для машин', reply_markup=markup8)
     
     elif call.data == 'BMW_E36_nastroyki':
-        markup8 = types.InlineKeyboardMarkup()
+        markup9 = types.InlineKeyboardMarkup()
         btn16 = types.InlineKeyboardButton('Назад', callback_data='back_nastroyki')
         media = [telebot.types.InputMediaPhoto(media=open('nastroyki5.jpg', 'rb')),
         telebot.types.InputMediaPhoto(media=open('nastroyki6.jpg', 'rb'))]
-        markup8.add(btn16)
+        markup9.add(btn16)
         bot.send_media_group(call.message.chat.id, media)
-        bot.send_message(call.message.chat.id, 'настройки для машин', reply_markup=markup8)
+        bot.send_message(call.message.chat.id, 'настройки для машин', reply_markup=markup9)
+
+    elif call.data == 'S15_nastroyki':
+        markup10 = types.InlineKeyboardMarkup()
+        btn17 = types.InlineKeyboardButton('Назад', callback_data='back_nastroyki')
+        media = [telebot.types.InputMediaPhoto(media=open('nastroyki7.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('nastroyki8.jpg', 'rb'))]
+        markup10.add(btn17)
+        bot.send_media_group(call.message.chat.id, media)
+        bot.send_message(call.message.chat.id, 'настройки для машин', reply_markup=markup10)
         
 
     
