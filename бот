@@ -66,9 +66,9 @@ def callback_inline(call):
     elif call.data == 'Altezza':
         markup2 = types.InlineKeyboardMarkup()
         btn7 = types.InlineKeyboardButton('Назад', callback_data='back_car')
-        media = [telebot.types.InputMediaPhoto(media=open('altezza1.jpg', 'rb')),
-        telebot.types.InputMediaPhoto(media=open('altezza2.jpg', 'rb')),
-        telebot.types.InputMediaPhoto(media=open('altezza3.jpg', 'rb'))]
+        media = [telebot.types.InputMediaPhoto(media=open('images/altezza1.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('images/altezza2.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('images/altezza3.jpg', 'rb'))]
         markup2.add(btn7)
         bot.send_media_group(call.message.chat.id, media)
         bot.send_message(call.message.chat.id, 'Винил для Toyota Altezza', reply_markup=markup2)
@@ -76,9 +76,9 @@ def callback_inline(call):
     elif call.data == 'Mark_II':
         markup3 = types.InlineKeyboardMarkup()
         btn8 = types.InlineKeyboardButton('Назад', callback_data='back_car')
-        media = [telebot.types.InputMediaPhoto(media=open('markII1.jpg', 'rb')),
-        telebot.types.InputMediaPhoto(media=open('markII2.jpg', 'rb')),
-        telebot.types.InputMediaPhoto(media=open('markII3.jpg', 'rb'))]
+        media = [telebot.types.InputMediaPhoto(media=open('images/markII1.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('images/markII2.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('images/markII3.jpg', 'rb'))]
         markup3.add(btn8)
         bot.send_media_group(call.message.chat.id, media)
         bot.send_message(call.message.chat.id, 'Винил для Toyota MarK II', reply_markup=markup3)
@@ -86,9 +86,9 @@ def callback_inline(call):
     elif call.data == 'BMW_E36':
         markup4 = types.InlineKeyboardMarkup()
         btn9 = types.InlineKeyboardButton('Назад', callback_data='back_car')
-        media = [telebot.types.InputMediaPhoto(media=open('bmwE361.jpg', 'rb')),
-        telebot.types.InputMediaPhoto(media=open('bmwE362.jpg', 'rb')),
-        telebot.types.InputMediaPhoto(media=open('bmwE363.jpg', 'rb'))]
+        media = [telebot.types.InputMediaPhoto(media=open('images/bmwE361.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('images/bmwE362.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('images/bmwE363.jpg', 'rb'))]
         markup4.add(btn9)
         bot.send_media_group(call.message.chat.id, media)
         bot.send_message(call.message.chat.id, 'Винил для BMW E36', reply_markup=markup4)
@@ -96,9 +96,9 @@ def callback_inline(call):
     elif call.data == 'S15':
         markup5 = types.InlineKeyboardMarkup()
         btn10 = types.InlineKeyboardButton('Назад', callback_data='back_car')
-        media = [telebot.types.InputMediaPhoto(media=open('s151.jpg', 'rb')),
-        telebot.types.InputMediaPhoto(media=open('s152.jpg', 'rb')),
-        telebot.types.InputMediaPhoto(media=open('s153.jpg', 'rb'))]
+        media = [telebot.types.InputMediaPhoto(media=open('images/s151.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('images/s152.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('images/s153.jpg', 'rb'))]
         markup5.add(btn10)
         bot.send_media_group(call.message.chat.id, media)
         bot.send_message(call.message.chat.id, 'Винил для Silvia 15', reply_markup=markup5)
@@ -106,9 +106,9 @@ def callback_inline(call):
     elif call.data == 'GTR':
         markup6 = types.InlineKeyboardMarkup()
         btn11 = types.InlineKeyboardButton('Назад', callback_data='back_car')
-        media = [telebot.types.InputMediaPhoto(media=open('gtr1.jpg', 'rb')),
-        telebot.types.InputMediaPhoto(media=open('gtr2.jpg', 'rb')),
-        telebot.types.InputMediaPhoto(media=open('gtr3.jpg', 'rb'))]
+        media = [telebot.types.InputMediaPhoto(media=open('images/tr1.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('images/gtr2.jpg', 'rb')),
+        telebot.types.InputMediaPhoto(media=open('images/gtr3.jpg', 'rb'))]
         markup6.add(btn11)
         bot.send_media_group(call.message.chat.id, media)
         bot.send_message(call.message.chat.id, 'Винил для GT-R R34', reply_markup=markup6)
