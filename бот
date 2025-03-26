@@ -18,9 +18,9 @@ def start(message):
     markup = types.InlineKeyboardMarkup()
     btn1 = types.InlineKeyboardButton('Винилы для машин', callback_data='vinils')
     btn2 = types.InlineKeyboardButton('Настройки для машин', callback_data='nastroyki')
-    btn19 = types.InlineKeyboardButton('Шаблоны наклеек', callback_data='nakl')
     btn20 = types.InlineKeyboardButton('IP серверов', callback_data='ip')
-    markup.add(btn1, btn2, btn19, btn20)
+    btn22 = types.InlineKeyboardButton('Скачка шаблонов',  url="https://web.telegram.org/a/#-1002623587093")
+    markup.add(btn1, btn2, btn20, btn22)
     bot.send_message(message.chat.id, 'Привет! Это бот для подбора тюнинга ваших машин на сервере Mta/Drift Paradise.', reply_markup=markup)
 
 @bot.callback_query_handler(func=lambda call: True)
@@ -39,9 +39,11 @@ def callback_inline(call):
     elif call.data == 'back':
         markup = types.InlineKeyboardMarkup()
         btn1 = types.InlineKeyboardButton('Винилы для машин', callback_data='vinils')
-        btn2 = types.InlineKeyboardButton('Настройки для Машин', callback_data='nastroyki')
-        markup.add(btn1, btn2,)
-        bot.send_message(call.message.chat.id, 'Привет! Это бот с готовым тюнингом машин на сервере MTA/Drift Paradise.', reply_markup=markup)
+        btn2 = types.InlineKeyboardButton('Настройки для машин', callback_data='nastroyki')
+        btn20 = types.InlineKeyboardButton('IP серверов', callback_data='ip')
+        btn22 = types.InlineKeyboardButton('Скачка шаблонов',  url="https://web.telegram.org/a/#-1002623587093")
+        markup.add(btn1, btn2, btn20, btn22)
+        bot.send_message(call.message.chat.id, 'Привет! Это бот для подбора тюнинга ваших машин на сервере Mta/Drift Paradise.', reply_markup=markup)
 
 
     elif call.data == 'back_car':
